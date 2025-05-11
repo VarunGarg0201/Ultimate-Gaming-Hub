@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dead Redemption 2 - Ultimate Gaming Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e1e1e;
+            --accent-color: #ff4081;
+            --bg-color: #f0f0f0;
+            --light-bg-color: #fff;
+            --text-color: #333;
+        }
+
+        .dark-mode {
+            --primary-color: #121212;
+            --accent-color: #ff4081;
+            --bg-color: #181818;
+            --light-bg-color: #333;
+            --text-color: #fff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background-color: var(--accent-color);
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .game-details {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-details img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ultimate Gaming Hub</h1>
+        <button class="dark-mode-toggle">Dark Mode</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#games">Game Library</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="game-details">
+            <h2>Red Dead Redemption 2</h2>
+            <img src="RDR" alt="Red Dead Redemption 2">
+            <p><strong>Genre:</strong> Action-adventure</p>
+            <p><strong>Developer:</strong> Rockstar Games</p>
+            <p><strong>Release Date:</strong> October 26, 2018</p>
+            <p><strong>Description:</strong> Red Dead Redemption 2 is an action-adventure game set in an open-world environment. It follows the story of Arthur Morgan, a member of the Van der Linde gang, in a fictionalized representation of the Western United States.</p>
+            <a class="button" href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank">Buy Now</a>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Ultimate Gaming Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector(".dark-mode-toggle").addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+
+</html>
