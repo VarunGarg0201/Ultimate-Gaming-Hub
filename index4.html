@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ultimate Gaming Hub - Explore games, join a community, and get the latest gaming news.">
+    <meta name="keywords" content="games, gaming, community, online gaming, game library, esports">
+    <meta name="author" content="Ultimate Gaming Hub">
+    <meta property="og:title" content="Ultimate Gaming Hub">
+    <meta property="og:description" content="Explore games, join a community, and get the latest gaming news.">
+    <meta property="og:image" content="path_to_image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#f0f0f0" />
+    <title>Ultimate Gaming Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e1e1e;
+            --accent-color: #ff4081;
+            --bg-color: #f0f0f0;
+            --light-bg-color: #fff;
+            --text-color: #333;
+            --highlight-color: #e8e8e8;
+            --input-bg: #fff;
+            --input-border: #ccc;
+            --card-border: #ccc;
+        }
+
+        .dark-mode {
+            --primary-color: #121212;
+            --accent-color: #ff4081;
+            --bg-color: #181818;
+            --light-bg-color: #333;
+            --text-color: #fff;
+            --highlight-color: #555;
+            --input-bg: #2a2a2a;
+            --input-border: #555;
+            --card-border: #555;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            right: 100px;
+            top: 15px;
+            background-color: var(--accent-color);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+
+        .search-container input,
+        .search-container button {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--input-border);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            margin-right: 5px;
+        }
+
+        .search-container button {
+            background-color: var(--accent-color);
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #e03570;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 10px 0 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .content {
+            flex: 3;
+        }
+
+        .sidebar {
+            flex: 1;
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: var(--accent-color);
+        }
+
+        section {
+            margin: 50px 0;
+            padding: 20px;
+            background: var(--light-bg-color);
+            border-radius: 8px;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .game-card {
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px;
+            background-color: var(--light-bg-color);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card img {
+            width: 100%;
+        }
+
+        .game-card h3 {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            color: var(--text-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .faq-item h4 {
+            cursor: pointer;
+            margin: 0;
+            padding: 10px;
+            background: var(--highlight-color);
+            border-radius: 5px;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            margin-top: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .contact-form, .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .login-form input {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid var(--input-border);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .contact-form button,
+        .login-form button {
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover,
+        .login-form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: var(--accent-color);
+            color: white;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #e03570;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                flex-direction: column;
+            }
+
+            .dark-mode-toggle {
+                right: 80px;
+            }
+
+            .search-container {
+                right: 10px;
+                top: 50px;
+            }
+        }
+        .search-container {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.search-box {
+    display: none;
+    margin-left: 10px;
+    animation: fadeIn 0.3s;
+}
+
+.search-box input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--input-border);
+    background-color: black;
+    color: var(--text-color);
+    width: 180px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scaleX(0.95); }
+    to { opacity: 1; transform: scaleX(1); }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ultimate Gaming Hub</h1>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false">Dark Mode</button>
+        <div class="search-container">
+    <button class="search-icon" onclick="toggleSearch()" aria-label="Open Search">🔍</button>
+    <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="Search Games..." onkeypress="handleSearchKey(event)">
+    </div>
+</div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#games">Game Library</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <section id="home">
+                <h2>Welcome to Ultimate Gaming Hub</h2>
+                <p>Discover games, join the community, and stay updated with news.</p>
+                <a class="button" href="#games">Explore Games</a>
+            </section>
+
+            <section id="about">
+                <h2>About Us</h2>
+                <p>We’re passionate gamers dedicated to creating an inclusive gaming community.</p>
+            </section>
+
+            <section id="games">
+                <h2>Game Library</h2>
+                <div class="game-library">
+                    <div class="game-card" onclick="location.href='portal2.html'"><img src="portal2" alt="Portal 2"><h3>Portal 2</h3></div>
+                    <div class="game-card" onclick="location.href='rdr2.html'"><img src="RDR" alt="RDR2"><h3>Red Dead Redemption 2</h3></div>
+                    <div class="game-card" onclick="location.href='gtav.html'"><img src="GTA V" alt="GTA V"><h3>GTA V</h3></div>
+                    <div class="game-card" onclick="location.href='zelda.html'"><img src="Zelda" alt="Zelda"><h3>Zelda</h3></div>
+                    <div class="game-card" onclick="location.href='minecraft.html'"><img src="Minecraft" alt="Minecraft"><h3>Minecraft</h3></div>
+                </div>
+            </section>
+
+            <section id="gallery">
+                <h2>Gallery</h2>
+                <div class="gallery">
+                    <img src="Gaming 1" alt="Action Shot" loading="lazy">
+                    <img src="gaming setup" alt="Gaming Setup" loading="lazy">
+                    <img src="gaming controller" alt="Controller" loading="lazy">
+                </div>
+            </section>
+
+            <section id="news">
+                <h2>Latest News</h2>
+                <div class="news-item">
+                    <h3>New Adventure Game Released!</h3>
+                    <p>Check out the newest game with stunning environments and epic storylines.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="sidebar">
+            <section id="login">
+                <h2 style="color: brown;">Login</h2>
+                <form class="login-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+            <section id="contact">
+                <h2 style="color:brown">Contact Us</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Ultimate Gaming Hub</p>
+    </footer>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+
+    <script>
+        // DARK MODE with localStorage
+        const toggleBtn = document.querySelector(".dark-mode-toggle");
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const metaTheme = document.querySelector("meta[name=theme-color]");
+
+        if (localStorage.getItem("darkMode") === "enabled" || (!localStorage.getItem("darkMode") && prefersDark)) {
+            document.body.classList.add("dark-mode");
+            toggleBtn.textContent = "Light Mode";
+            toggleBtn.setAttribute("aria-pressed", "true");
+            metaTheme.setAttribute("content", "#121212");
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            const isDark = document.body.classList.contains("dark-mode");
+            toggleBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+            toggleBtn.setAttribute("aria-pressed", isDark);
+            localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+            metaTheme.setAttribute("content", isDark ? "#121212" : "#f0f0f0");
+        });
+
+        // SEARCH
+        function searchGames() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const gameCards = document.querySelectorAll(".game-card");
+            gameCards.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                card.style.display = title.includes(input) ? "block" : "none";
+            });
+        }
+
+        document.getElementById("searchInput").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                searchGames();
+            }
+        });
+
+        // Scroll to top
+        const scrollBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = () => {
+            scrollBtn.style.display = document.documentElement.scrollTop > 100 ? "block" : "none";
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function toggleSearch() {
+    const box = document.getElementById("searchBox");
+    const input = document.getElementById("searchInput");
+    box.style.display = box.style.display === "flex" ? "none" : "flex";
+    if (box.style.display === "flex") {
+        input.focus();
+    }
+}
+
+function handleSearchKey(event) {
+    if (event.key === "Enter") {
+        searchGames();
+    } else if (event.key === "Escape") {
+        document.getElementById("searchBox").style.display = "none";
+    }
+}
+
+// Optional: Hide when clicking outside
+document.addEventListener("click", function(event) {
+    const box = document.getElementById("searchBox");
+    const icon = document.querySelector(".search-icon");
+    if (!box.contains(event.target) && !icon.contains(event.target)) {
+        box.style.display = "none";
+    }
+});
+
+    </script>
+</body>
+
+</html>
